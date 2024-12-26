@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Insurance Premium Prediction</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+    
+
+<body>
+    <h2>Insurance Premium Prediction</h2>
+    <form method="POST" action="/predict">
+        <!-- Numeric Inputs -->
+        <label for="age">Age:</label>
+        <input type="number" name="age" min="18" required><br>
+
+        <label for="income">Annual Income:</label>
+        <input type="number" name="income" required><br>
+
+        <label for="vehicle_age">Vehicle Age (in years):</label>
+        <input type="number" name="vehicle_age" required><br>
+
+        <label for="vehicle_value">Vehicle Value ($):</label>
+        <input type="number" name="vehicle_value" required><br>
+
+        <label for="claim_amount">Total Claim Amount:</label>
+        <input type="number" name="claim_amount" required><br>
+
+        <label for="policy_duration">Policy Duration (in months):</label>
+        <input type="number" name="policy_duration" required><br>
+
+        <label for="driving_experience">Driving Experience (in years):</label>
+        <input type="number" name="driving_experience" required><br>
+
+        <label for="num_claims">Number of Claims:</label>
+        <input type="number" name="num_claims" required><br>
+
+        <!-- Categorical Inputs -->
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+        </select><br>
+
+        <label for="marital_status">Marital Status:</label>
+        <select name="marital_status" required>
+            <option value="0">Single</option>
+            <option value="1">Divorced</option>
+            <option value="2">Married</option>
+        </select><br>
+
+        <label for="driving_history">Driving History:</label>
+        <select name="driving_history" required>
+            <option value="0">Clean</option>
+            <option value="1">Violations</option>
+            <option value="2">Accidents</option>
+        </select><br>
+
+        <label for="coverage_type">Coverage Type:</label>
+        <select name="coverage_type" required>
+            <option value="0">Standard</option>
+            <option value="1">Basic</option>
+            <option value="2">Premium</option>
+        </select><br>
+
+        <label for="occupation">Occupation:</label>
+        <select name="occupation_Professional">
+            <option value="0">Not Professional</option>
+            <option value="1">Professional</option>
+        </select>
+        <select name="occupation_Retired">
+            <option value="0">Not Retired</option>
+            <option value="1">Retired</option>
+        </select>
+        <select name="occupation_Student">
+            <option value="0">Not Student</option>
+            <option value="1">Student</option>
+        </select><br>
+
+        <label for="education">Education:</label>
+        <select name="education_High_School">
+            <option value="0">Not High School</option>
+            <option value="1">High School</option>
+        </select>
+        <select name="education_Master">
+            <option value="0">Not Master</option>
+            <option value="1">Master</option>
+        </select>
+        <select name="education_PhD">
+            <option value="0">Not PhD</option>
+            <option value="1">PhD</option>
+        </select><br>
+
+        <label for="location">Location:</label>
+        <select name="location_Suburban">
+            <option value="0">Not Suburban</option>
+            <option value="1">Suburban</option>
+        </select>
+        <select name="location_Urban">
+            <option value="0">Not Urban</option>
+            <option value="1">Urban</option>
+        </select><br>
+
+        <label for="vehicle_type">Vehicle Type:</label>
+        <select name="vehicle_type_Sedan">
+            <option value="0">Not Sedan</option>
+            <option value="1">Sedan</option>
+        </select>
+        <select name="vehicle_type_Sports_Car">
+            <option value="0">Not Sports Car</option>
+            <option value="1">Sports Car</option>
+        </select>
+        <select name="vehicle_type_Truck">
+            <option value="0">Not Truck</option>
+            <option value="1">Truck</option>
+        </select><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
