@@ -6,7 +6,7 @@ import bz2
 app = Flask(__name__)
 
 # Load the saved model
-model_path = 'E:/00Projects_new/insurance-prediction-deployment/model/insurance_prediction_final.pkl.bz2'
+model_path = '../path_to/insurance_prediction_final.pkl.bz2'
 with bz2.BZ2File(model_path, 'rb') as file:
     model = pickle.load(file)
 
